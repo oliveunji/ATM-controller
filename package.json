@@ -1,0 +1,20 @@
+{
+  "name": "atm-controller",
+  "version": "1.0.0",
+  "description": "Implement a simple ATM controller",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/oliveunji/atm-controller.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/oliveunji/atm-controller/issues"
+  },
+  "homepage": "https://github.com/oliveunji/atm-controller#readme"
+}
