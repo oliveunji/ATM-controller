@@ -1,9 +1,9 @@
 require = require("esm")(module);
 
-import Card from "./card";
-import Account from "./account";
-import Customer from "./customer";
-import { Deposit, Withdraw, Transfer } from "./transaction";
+import Card from "./src/card";
+import Account from "./src/account";
+import Customer from "./src/customer";
+import { Deposit, Withdraw, Transfer } from "./src/transaction";
 
 // Setup - customer1 info
 const card1 = new Card("4556748410020592", "EJ", "04/2022", "7724");
