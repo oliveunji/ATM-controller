@@ -2,6 +2,10 @@
 
 Implement a simple ATM controller.
 
+## UML - Class Diagram
+
+<img width="772" alt="image" src="https://user-images.githubusercontent.com/39396725/212460791-038a014d-6150-4d67-ad42-ef69f715a340.png">
+
 ## Environment
 
 - Node.js: v18.13.0
