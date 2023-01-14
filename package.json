@@ -4,7 +4,7 @@
   "description": "Implement a simple ATM controller",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest"
   },
   "repository": {
     "type": "git",
@@ -16,5 +16,17 @@
   "bugs": {
     "url": "https://github.com/oliveunji/atm-controller/issues"
   },
-  "homepage": "https://github.com/oliveunji/atm-controller#readme"
+  "homepage": "https://github.com/oliveunji/atm-controller#readme",
+  "devDependencies": {
+    "@babel/core": "^7.20.12",
+    "@babel/preset-env": "^7.20.2",
+    "babel-jest": "^29.3.1",
+    "jest": "^29.3.1"
+  },
+  "transform": {
+    "^.+\\.jsx?$": "babel-jest"
+  },
+  "dependencies": {
+    "esm": "^3.2.25"
+  }
 }
