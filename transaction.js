@@ -1,16 +1,6 @@
-const TransactionStatus = {
-  SUCCESS: 0,
-  CANCELLED: 1,
-  PENDING: 2,
-  ERROR: 3,
-};
+// require = require("esm")(module);
 
-const TransactionType = {
-  BALANCE_INQUIRY: 0,
-  DEPOSIT: 1,
-  WITHDRAW: 2,
-  TRANSFER: 3,
-};
+// import Account from "./account";
 
 class Transaction {
   constructor(fromAccount, toAccount) {
@@ -18,5 +8,49 @@ class Transaction {
     this.date = "Assign Current Date Time";
     this.fromAccount = fromAccount;
     this.toAccount = toAccount;
+    this.getFromAccountBalance = function () {
+      return this.fromAccount.getBalance();
+    };
   }
 }
+
+class Deposit extends Transaction {
+  constructor(fromAccount, amount) {
+    super(fromAccount, fromAccount);
+    const updatedAmount = amount + fromAccount.getBalance();
+    fromAccount.setBalance(updatedAmount);
+  }
+}
+
+class Withdraw extends Transaction {
+  constructor(fromAccount, amount) {
+    super(fromAccount, fromAccount);
+    const curBalance = fromAccount.getBalance();
+    if (curBalance >= amount) {
+      fromAccount.setBalance(curBalance - amount);
+    } else {
+      // throw new Error("Transaction Failure");
+      console.log(
+        "Transaction Failure - You don't have enough money to Withdraw"
+      );
+    }
+  }
+}
+
+class Transfer extends Transaction {
+  constructor(fromAccount, toAccount, amount) {
+    super(fromAccount, toAccount);
+    const curBalance = fromAccount.getBalance();
+    if (curBalance >= amount) {
+      fromAccount.setBalance(curBalance - amount);
+      toAccount.setBalance(toAccount.getBalance() + amount);
+    } else {
+      // return Error("Transaction Failure");
+      console.log(
+        "Transaction Failure - You don't have enough money to Transfer"
+      );
+    }
+  }
+}
+
+export { Deposit, Withdraw, Transfer };

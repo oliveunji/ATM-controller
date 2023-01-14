@@ -12,6 +12,10 @@ class Card {
         return false;
       }
     };
+
+    this.getCardNumber = function () {
+      return _cardNum;
+    };
   }
 }
 
