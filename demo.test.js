@@ -23,7 +23,7 @@ describe("check Card Class", () => {
   it("check return true if user input valid pin number", () => {
     expect(card1.checkPinNumber("7724")).toBe(true);
   });
-  it("check return false if user input valid pin number", () => {
+  it("check return false if user input invalid pin number", () => {
     expect(card1.checkPinNumber("1234")).toBe(false);
   });
 });
@@ -75,5 +75,25 @@ describe("check Transaction class", () => {
     );
     expect(transaction3.getFromAccountBalance()).toBe(5000);
     expect(customer2_account2.getBalance()).toBe(3000);
+  });
+
+  it("customer1 trying to withdraw money more then current balance", () => {
+    try {
+      new Withdraw(customer1_account1, 6000);
+    } catch (e) {
+      expect(e.message).toBe(
+        "[Transaction Failure] You don't have enough money to Withdraw."
+      );
+    }
+  });
+
+  it("customer2 trying to transfer money more then current balance", () => {
+    try {
+      new Transfer(customer2_account2, 4000);
+    } catch (e) {
+      expect(e.message).toBe(
+        "[Transaction Failure] You don't have enough money to Transfer."
+      );
+    }
   });
 });

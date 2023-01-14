@@ -1,7 +1,3 @@
-// require = require("esm")(module);
-
-// import Account from "./account";
-
 class Transaction {
   constructor(fromAccount, toAccount) {
     this.id = "random-generated-guid";
@@ -29,9 +25,8 @@ class Withdraw extends Transaction {
     if (curBalance >= amount) {
       fromAccount.setBalance(curBalance - amount);
     } else {
-      // throw new Error("Transaction Failure");
-      console.log(
-        "Transaction Failure - You don't have enough money to Withdraw"
+      throw new Error(
+        "[Transaction Failure] You don't have enough money to Withdraw."
       );
     }
   }
@@ -45,9 +40,8 @@ class Transfer extends Transaction {
       fromAccount.setBalance(curBalance - amount);
       toAccount.setBalance(toAccount.getBalance() + amount);
     } else {
-      // return Error("Transaction Failure");
-      console.log(
-        "Transaction Failure - You don't have enough money to Transfer"
+      throw new Error(
+        "[Transaction Failure] You don't have enough money to Transfer."
       );
     }
   }
