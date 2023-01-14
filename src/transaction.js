@@ -1,7 +1,9 @@
+const { randomUUID } = require("crypto");
+
 class Transaction {
   constructor(fromAccount, toAccount) {
-    this.id = "random-generated-guid";
-    this.date = "Assign Current Date Time";
+    this.transactionId = randomUUID();
+    this.date = Date.now();
     this.fromAccount = fromAccount;
     this.toAccount = toAccount;
     this.getFromAccountBalance = function () {
